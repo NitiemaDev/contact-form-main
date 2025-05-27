@@ -1,0 +1,34 @@
+@use './variables' as *;
+
+@mixin flex-layout($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+@mixin field-style($height) {
+    width: 100%;
+    height: $height;
+    padding: 0 1em;
+    font-size: 1em;
+    color: $grey-900;
+    border-radius: 5px;
+    border: 1px solid $grey-900;
+    cursor: pointer;
+
+    &:focus, &:hover {
+        outline: 2px solid $green-600;
+        border: none;
+    }
+
+    &.error__input__state {
+        border: none;
+        outline: 2px solid $red;
+
+        &:hover,
+        &:focus {
+            outline: 2px solid $red; // garde l'erreur visible même au focus
+        }
+    }
+}

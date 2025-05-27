@@ -4,49 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playwrite+MX+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="/src/styles/css/styles.css">
+  <title>Frontend Mentor | Contact form</title>
 </head>
 <body>
+  <main>
+    <!-- success message -->
+     <!-- <aside class="success__message">
+      <div class="content">
+        <div>
+          <img src="/assets/images/icon-checkbox-check.svg" alt="">
+          <h2>Message Sent!</h2>
+          <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </div>
+      </div>
+     </aside> -->
 
-  Contact Us
+    <form action="#" method="post">
+      <div class="form__content">
+        <h1>Contact Us</h1>
 
-  First Name
-  This field is required
+        <section class="names__fields">
+          <div>
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" aria-describedby="fistname-error">
+            <p class="firstname__error__message" id="fistname-error"><!-- This field is required  --></p>
+          </div>
+          <div>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" aria-describedby="lastname-error">
+            <p class="lastname__error__message" id="lastname-error"><!-- This field is required  --></p>
+          </div>
+        </section>
 
-  Last Name
-  This field is required
+        <section class="email__field">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" aria-describedby="email-error">
+          <p class="email__error__message" id="email-error"><!-- Please enter a valid email address --></p>
+        </section>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+        <fieldset class="radio__fields">
+          <legend>Query Type</legend>
+          <article>
+            <div>
+              <label for="enquiry">
+                <input type="radio" name="query" id="enquiry" aria-describedby="enquiry-error">
+                General Enquiry
+              </label>
+            </div>
+            <p class="enquiry__error__message" id="enquiry-error"><!-- Please select a query type --></p>
+          </article>
+          <article>
+            <div>
+              <label for="request">
+                <input type="radio" name="query" id="request" aria-describedby="request-error">
+                Support Request
+              </label>
+            </div>
+            <p class="request__error__message" id="request-error"><!-- Please select a query type --></p>
+          </article>
+        </fieldset>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+        <section class="message_field">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" aria-describedby="message-error"></textarea>
+          <p class="message__text__error" id="message-error"><!-- This field is required --></p>
+        </section>
 
-  Message
-  This field is required
+        <section class="checkbox__field">
+          <label for="consent">
+            <input type="checkbox" name="consent" id="consent">
+            I consent to being contacted by the team
+          </label>
+          <p class="consent__message__error"><!-- To submit this form, please consent to being contacted --></p>
+        </section>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </main>
 
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="#">Nitiema Allassane</a>.
+  </footer>
 </body>
 </html>

@@ -1,0 +1,142 @@
+@use './modules/base';
+@use './modules/variables' as *;
+@use './modules/mixins' as *;
+
+
+form {
+    background-color: $white;
+    width: 650px;
+    padding: $ms-space;
+    border-radius: $xxs-space;
+
+    h1 {
+        margin-bottom: $xs-space;
+    }
+
+    .names__fields, .radio__fields {
+        @include flex-layout(baseline, center);
+        gap: $xs-space;
+    }
+
+    button {
+        width: 100%;
+        padding: $xs-space;
+        border: none;
+        border-radius: 5px;
+        background-color: $green-600;
+        color: $white;
+        font-size: 1em;
+        font-weight: $weight-md;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: $green-900;
+    }
+}
+
+p {
+    margin-top: 8px;
+
+    &.error__state {
+        color: $red;
+    }
+}
+
+
+section label:not( .checkbox__field label ) {
+    display: block;
+    margin-bottom: $xs-space;
+}
+
+
+
+.names__fields {
+    margin-bottom: $sm-space;
+
+    div {
+        width: 100%;
+    }
+
+    input {
+        @include field-style(40px);
+    }
+}
+
+.email__field {
+    margin-bottom: $sm-space;
+
+    input {
+        @include field-style(40px);
+    }
+}
+
+fieldset {
+    margin-bottom: $sm-space;
+
+    article {
+        width: 100%;
+    }
+
+    legend {
+        margin-bottom: $xs-space;
+    }
+
+    label {
+        @include flex-layout(baseline, center);
+        gap: $xxs-space;
+        cursor: pointer;
+    }
+
+    div {
+        padding: $xxs-space $xs-space;
+        border: 1px solid $grey-900;
+        border-radius: 5px;
+        width: 100%;
+        cursor: pointer;
+
+        &:has(input:focus),
+        &:has(input:checked) {
+            border: none;
+            outline: 2px solid $green-600;
+            background-color: $green-200;
+        }
+    }
+
+    div input {
+        width: 20px;
+        height: 20px;
+        accent-color: $green-600;
+        cursor: pointer;
+    }
+
+}
+
+
+.message_field {
+    margin-bottom: $sm-space;
+    textarea {
+        @include field-style(80px);
+        padding: 8px $xs-space;
+    }
+}
+
+
+.checkbox__field {
+    margin-bottom: $ms-space;
+
+    label {
+        @include flex-layout(baseline, center);
+        gap: $xs-space;
+        cursor: pointer;
+    }
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    // color: hsl(228, 45%, 44%); 
+    color: $green-600;
+}
