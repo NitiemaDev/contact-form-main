@@ -3,9 +3,33 @@
 @use './modules/mixins' as *;
 
 
+
+p {
+    margin-top: 8px;
+
+    &.error__state {
+        color: $red;
+    }
+}
+
+
+section label:not( .checkbox__field label ) {
+    display: block;
+    margin-bottom: $xs-space;
+}
+
+
+main {
+    margin: $md-space 0;
+    // background-color: red;
+}
+
+
+// ======================= Form style ====================
 form {
     background-color: $white;
     width: 650px;
+    // width: 100%;
     padding: $ms-space;
     border-radius: $xxs-space;
 
@@ -33,23 +57,11 @@ form {
     button:hover {
         background-color: $green-900;
     }
-}
 
-p {
-    margin-top: 8px;
-
-    &.error__state {
-        color: $red;
-    }
 }
 
 
-section label:not( .checkbox__field label ) {
-    display: block;
-    margin-bottom: $xs-space;
-}
-
-
+// ================= names section =================
 
 .names__fields {
     margin-bottom: $sm-space;
@@ -63,6 +75,9 @@ section label:not( .checkbox__field label ) {
     }
 }
 
+
+// ========== email section =====================
+
 .email__field {
     margin-bottom: $sm-space;
 
@@ -70,6 +85,9 @@ section label:not( .checkbox__field label ) {
         @include field-style(40px);
     }
 }
+
+
+// ================= group  =======================
 
 fieldset {
     margin-bottom: $sm-space;
@@ -113,6 +131,8 @@ fieldset {
 }
 
 
+// ================== message section =====================
+
 .message_field {
     margin-bottom: $sm-space;
     textarea {
@@ -122,16 +142,93 @@ fieldset {
 }
 
 
+// checkbox
+
 .checkbox__field {
     margin-bottom: $ms-space;
 
     label {
         @include flex-layout(baseline, center);
-        gap: $xs-space;
+        gap: 8px;
+        cursor: pointer;
+    }
+
+    input {
+        accent-color: $green-600;
+        width: 15px;
+        height: 15px;
         cursor: pointer;
     }
 }
 
+
+
+// ============== success message ===========
+.success__message {
+    z-index: 1000;
+    background-color: $green-600;
+    color: $white;
+    padding: 8px 1em;
+    width: 500px;
+    margin: 2em auto;
+    border-radius: 5px;
+
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: 0.3s ease;
+
+    transform: translate(-50%, -100%);
+    visibility: hidden;
+    opacity: 0;
+
+    &.show {
+        transform: translate(-50%, 0%);
+        visibility: visible;
+        opacity: 1;
+    }
+    
+
+    header {
+        @include flex-layout(baseline, center);
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    p {
+        margin: 0;
+     }
+}
+    
+
+
+
+
+@media screen and (max-width: 48rem) {
+    main {
+        width: 100%;
+    }
+
+    form {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    .names__fields, .radio__fields {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+
+    .success__message {
+        width: 90%;
+    }
+}
+
+
+
+// attribution
 .attribution { 
     font-size: 11px; 
     text-align: center; 
