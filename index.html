@@ -23,19 +23,19 @@
           <div>
             <label for="firstname">First Name</label>
             <input type="text" name="firstname" id="firstname" aria-describedby="fistname-error">
-            <p class="firstname__error__message" id="fistname-error"><!-- This field is required  --></p>
+            <p class="firstname__error__message error__state" id="fistname-error"><!-- This field is required  --></p>
           </div>
           <div>
             <label for="lastname">Last Name</label>
             <input type="text" name="lastname" id="lastname" aria-describedby="lastname-error">
-            <p class="lastname__error__message" id="lastname-error"><!-- This field is required  --></p>
+            <p class="lastname__error__message error__state" id="lastname-error"><!-- This field is required  --></p>
           </div>
         </section>
 
         <section class="email__field">
           <label for="email">Email Address</label>
           <input type="email" name="email" id="email" aria-describedby="email-error">
-          <p class="email__error__message" id="email-error"><!-- Please enter a valid email address --></p>
+          <p class="email__error__message error__state" id="email-error"><!-- Please enter a valid email address --></p>
         </section>
 
         <fieldset class="radio__fields">
@@ -43,27 +43,24 @@
           <article>
             <div>
               <label for="enquiry">
-                <input type="radio" name="query" id="enquiry" aria-describedby="enquiry-error">
+                <input type="radio" name="query" id="enquiry">
                 General Enquiry
               </label>
             </div>
-            <p class="enquiry__error__message" id="enquiry-error"><!-- Please select a query type --></p>
-          </article>
-          <article>
-            <div>
+             <div>
               <label for="request">
-                <input type="radio" name="query" id="request" aria-describedby="request-error">
+                <input type="radio" name="query" id="request">
                 Support Request
               </label>
             </div>
-            <p class="request__error__message" id="request-error"><!-- Please select a query type --></p>
           </article>
+          <p class="enquiry__error__message error__state"><!-- Please select a query type --></p>
         </fieldset>
 
         <section class="message_field">
           <label for="message">Message</label>
           <textarea name="message" id="message" aria-describedby="message-error"></textarea>
-          <p class="message__text__error" id="message-error"><!-- This field is required --></p>
+          <p class="message__text__error error__state" id="message-error"><!-- This field is required --></p>
         </section>
 
         <section class="checkbox__field">
@@ -71,7 +68,7 @@
             <input type="checkbox" name="consent" id="consent">
             I consent to being contacted by the team
           </label>
-          <p class="consent__message__error"><!-- To submit this form, please consent to being contacted --></p>
+          <p class="consent__message__error error__state"><!-- To submit this form, please consent to being contacted --></p>
         </section>
 
         <button type="submit">Submit</button>
@@ -94,5 +91,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Nitiema Allassane</a>.
   </footer>
+
+  <script src="/src/js/app.js"></script>
 </body>
 </html>

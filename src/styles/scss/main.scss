@@ -4,12 +4,9 @@
 
 
 
-p {
+p.error__state {
     margin-top: 8px;
-
-    &.error__state {
-        color: $red;
-    }
+    color: $red;
 }
 
 
@@ -37,11 +34,6 @@ form {
         margin-bottom: $xs-space;
     }
 
-    .names__fields, .radio__fields {
-        @include flex-layout(baseline, center);
-        gap: $xs-space;
-    }
-
     button {
         width: 100%;
         padding: $xs-space;
@@ -64,6 +56,8 @@ form {
 // ================= names section =================
 
 .names__fields {
+    @include flex-layout(baseline, center);
+    gap: $xs-space;
     margin-bottom: $sm-space;
 
     div {
@@ -90,10 +84,13 @@ form {
 // ================= group  =======================
 
 fieldset {
+
     margin-bottom: $sm-space;
 
     article {
         width: 100%;
+        @include flex-layout(baseline, center);
+        gap: $xs-space;
     }
 
     legend {
@@ -176,7 +173,7 @@ fieldset {
     position: fixed;
     top: 0%;
     left: 50%;
-    transform: 0.3s ease;
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease;
 
     transform: translate(-50%, -100%);
     visibility: hidden;
@@ -186,6 +183,12 @@ fieldset {
         transform: translate(-50%, 0%);
         visibility: visible;
         opacity: 1;
+    }
+
+    &.remove {
+        transform: translate(-50%, -100%);
+        visibility: hidden;
+        opacity: 0;
     }
     
 
@@ -216,13 +219,17 @@ fieldset {
 }
 
 @media screen and (max-width: 40rem) {
-    .names__fields, .radio__fields {
+    .names__fields, .radio__fields article {
         flex-direction: column;
         gap: 1.5em;
     }
 
     .success__message {
         width: 90%;
+    }
+
+    form {
+        padding: 1em;
     }
 }
 
